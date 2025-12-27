@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Milestone Task Tracker</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{  
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+ font-family:'Poppins',sans-serif;
+}
+
+body{
+ background:#fff7d6;
+}
+
+/* Header */
+.header{
+ width:100%;
+ padding:25px 5%;
+ text-align:center;
+ background:linear-gradient(45deg,#f5c103,#dacd0e);
+ color:#000;
+ border-bottom-left-radius:20px;
+ border-bottom-right-radius:20px;
+}
+.header h2 span{color:#ff7b00}
+
+/* Status Box */
+.status-box{
+ width:90%;
+ margin:15px auto;
+ background:#fff;
+ padding:15px;
+ border-radius:15px;
+ box-shadow:0 8px 20px rgba(0,0,0,0.1);
+ text-align:center;
+}
+.status-box h3{margin-bottom:5px}
+
+/* Filter Panel */
+.filter-box{
+ width:90%;
+ margin:10px auto;
+ background:#fff;
+ padding:12px;
+ border-radius:12px;
+ box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.filter-box input,
+.filter-box select{
+ width:100%;
+ padding:10px;
+ border-radius:8px;
+ border:1px solid #ccc;
+ margin-top:8px;
+}
+
+/* Task List */
+.task-container{
+ width:90%;
+ margin:10px auto 70px;
+}
+
+.date-title{
+ margin:15px 0 5px;
+ font-size:16px;
+ font-weight:600;
+ color:#444;
+}
+
+/* Task Card */
+.task{
+ background:#fff;
+ padding:12px;
+ margin-bottom:10px;
+ border-radius:12px;
+ box-shadow:0 5px 15px rgba(0,0,0,0.1);
+ border-left:6px solid orange;
+ display:flex;
+ gap:12px;
+ align-items:center;
+ transition:.4s;
+}
+
+/* Card Hover lift */
+.task:hover{
+ transform:translateY(-4px);
+ box-shadow:0 12px 30px rgba(0,0,0,0.2);
+}
+
+/* Image Box */
+.task img{
+ width:75px;
+ height:75px;
+ border-radius:14px;
+ object-fit:cover;
+ background:#ffe9b3;
+ transition:.6s ease;
+}
+
+/* Image Hover Animation */
+.task:hover img{
+ transform:scale(1.15) rotate(-2deg);
+}
+
+/* Right Content */
+.task-content{
+ flex:1;
+}
+
+.task .top{
+ display:flex;
+ justify-content:space-between;
+}
+
+.badge{
+ padding:4px 10px;
+ border-radius:20px;
+ font-size:12px;
+ background:#ffe7a1;
+ color:#000;
+}
+
+.title{
+ font-size:15px;
+ font-weight:600;
+ margin:5px 0;
+}
+
+.status{
+ padding:5px 10px;
+ border-radius:20px;
+ font-size:12px;
+ display:inline-block;
+}
+
+.completed{background:#c6ffcb;color:#056b0e}
+.pending{background:#ffd3d3;color:#b00000}
+
+/* Fade Animation */
+.task{
+ opacity:0;
+ transform:translateY(25px);
+ animation:fade .6s forwards;
+}
+@keyframes fade{
+ to{opacity:1;transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+ <h2>Milestone <span>Tracker</span></h2>
+ <p>Child Hospital Panel</p>
+</div>
+
+<div class="status-box">
+ <h3>Completion Status</h3>
+ <p><b>6 / 12</b> Tasks Completed</p>
+</div>
+
+<div class="filter-box">
+ <input type="text" id="search" placeholder="Search Task...">
+ <select id="category">
+   <option value="All">All Category</option>
+   <option value="Motor">Motor</option>
+   <option value="Language">Language</option>
+   <option value="Cognitive">Cognitive</option>
+   <option value="Social">Social</option>
+ </select>
+</div>
+
+<div class="task-container" id="list">
+
+<!-- ================= TODAY ================= -->
+<h3 class="date-title">Today's Tasks</h3>
+
+<div class="task" data-status="Completed" data-category="Motor">
+ <img src="./ss/a1.jpg">
+
+ <div class="task-content">
+ <div class="top">
+  <span class="badge">Motor</span>
+  <span class="status completed">Completed</span>
+ </div>
+ <p class="title">Walk for 10 seconds</p>
+ </div>
+</div>
+
+<div class="task" data-status="Pending" data-category="Language">
+ <img src="./ss/a2.jpg">
+ <div class="task-content">
+ <div class="top">
+  <span class="badge">Language</span>
+  <span class="status pending">Pending</span>
+ </div>
+ <p class="title">Speak 5 new words</p>
+ </div>
+</div>
+
+<div class="task" data-status="Completed" data-category="Cognitive">
+ <img src="./ss/a3.jpg">
+ <div class="task-content">
+ <div class="top">
+  <span class="badge">Cognitive</span>
+  <span class="status completed">Completed</span>
+ </div>
+ <p class="title">Solve Color Puzzle</p>
+ </div>
+</div>
+
+<div class="task" data-status="Pending" data-category="Social">
+ <img src="./ss/a4.jpg">
+ <div class="task-content">
+ <div class="top">
+  <span class="badge">Social</span>
+  <span class="status pending">Pending</span>
+ </div>
+ <p class="title">Share toy with friend</p>
+ </div>
+</div>
+
+<!-- ================= 5 AUG ================= -->
+<h3 class="date-title">5 Aug 2025</h3>
+
+<div class="task" data-status="Completed" data-category="Motor">
+ <img src="./ss/a5.jpg">
+ <div class="task-content">
+ <div class="top">
+  <span class="badge">Motor</span>
+  <span class="status completed">Completed</span>
+ </div>
+ <p class="title">Jump 10 times</p>
+ </div>
+</div>
+
+<div class="task" data-status="Pending" data-category="Language">
+ <img src="./ss/a6.jpg">
+ <div class="task-content">
+ <div class="top">
+  <span class="badge">Language</span>
+  <span class="status pending">Pending</span>
+ </div>
+ <p class="title">Speak full sentence</p>
+ </div>
+</div>
+
+<div class="task" data-status="Completed" data-category="Cognitive">
+ <img src="./ss/a7.jpg">
+ <div class="task-content">
+ <div class="top">
+  <span class="badge">Cognitive</span>
+  <span class="status completed">Completed</span>
+ </div>
+ <p class="title">Identify 5 shapes</p>
+ </div>
+</div>
+
+<div class="task" data-status="Pending" data-category="Social">
+ <img src="./ss/a8.jpg">
+ <div class="task-content">
+ <div class="top">
+  <span class="badge">Social</span>
+  <span class="status pending">Pending</span>
+ </div>
+ <p class="title">Play team game</p>
+ </div>
+</div>
+
+<!-- ================= 4 AUG ================= -->
+<h3 class="date-title">4 Aug 2025</h3>
+
+<div class="task" data-status="Pending" data-category="Motor">
+ <img src="./ss/a9.jpg">
+ <div class="task-content">
+ <div class="top">
+  <span class="badge">Motor</span>
+  <span class="status pending">Pending</span>
+ </div>
+ <p class="title">Run for 10 seconds</p>
+ </div>
+</div>
+
+<div class="task" data-status="Completed" data-category="Language">
+ <img src="./ss/a10.jpg">
+ <div class="task-content">
+ <div class="top">
+  <span class="badge">Language</span>
+  <span class="status completed">Completed</span>
+ </div>
+ <p class="title">Say ring 10 times</p>
+ </div>
+</div>
+
+<div class="task" data-status="Pending" data-category="Cognitive">
+ <img src="./ss/a11.jpg">
+ <div class="task-content">
+ <div class="top">
+  <span class="badge">Cognitive</span>
+  <span class="status pending">Pending</span>
+ </div>
+ <p class="title">Match Pattern</p>
+ </div>
+</div>
+
+<div class="task" data-status="Completed" data-category="Social">
+ <img src="./ss/a12.jpg">
+ <div class="task-content">
+ <div class="top">
+  <span class="badge">Social</span>
+  <span class="status completed">Completed</span>
+ </div>
+ <p class="title">Smile & Respond</p>
+ </div>
+</div>
+
+</div>
+
+<script>
+let search = document.getElementById("search");
+let category = document.getElementById("category");
+
+search.addEventListener("input",filter);
+category.addEventListener("change",filter);
+
+function filter(){
+ let text = search.value.toLowerCase();
+ let cat = category.value;
+
+ document.querySelectorAll(".task").forEach(task=>{
+   let title = task.querySelector(".title").innerText.toLowerCase();
+   let c = task.getAttribute("data-category");
+
+   let show = true;
+
+   if(text && !title.includes(text)) show=false;
+   if(cat!=="All" && cat!==c) show=false;
+
+   task.style.display = show ? "flex" : "none";
+ });
+
+ document.querySelectorAll(".date-title").forEach(title=>{
+  let nextTask = title.nextElementSibling;
+  let visible = false;
+
+  while(nextTask && !nextTask.classList.contains("date-title")){
+   if(nextTask.style.display !== "none") visible = true;
+   nextTask = nextTask.nextElementSibling;
+  }
+
+  title.style.display = visible ? "block" : "none";
+ });
+}
+</script>
+
+</body>
+</html>
